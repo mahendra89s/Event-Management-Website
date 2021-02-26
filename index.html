@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>EventPlanner</title>
+	<link rel="stylesheet" type="text/css">
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script data-ad-client="ca-pub-8200336634843800" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <style>
+        body{
+            font-family: Trebuchet MS;
+        }
+       .parallax-window {
+        
+       
+          height:730px;
+         
+          background-attachment: fixed;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+          
+}
+.parallax-window1 {
+        
+        
+          height:680px;
+         
+          background-attachment: fixed;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+          
+}
+.fixed-top{
+        background-color: transparent !important;
+
+      }
+
+      .fixed-top.scrolled {
+        background-color:#574b90 !important;
+        transition: background-color 200ms linear;
+
+      }
+      .nav-item{
+          font-size:40px;
+    
+      }
+      li{
+          padding-right: 100px;
+      }
+      a:hover{
+          background-color:#303952;
+          border-radius: 10px;
+      }
+      .contact {
+    
+    padding: 50px 0 80px;
+    text-align: center;
+}
+
+
+.contact .input-group {
+    
+    margin-bottom: 25px;
+    
+}
+
+.contact .form-control {
+    
+    border-radius: 10px !important;
+}
+
+.contact span {
+    
+    border-radius: 0 !important;
+}
+
+.contact .btn {
+    
+    border-radius: 10px;
+    width: 100%;
+    font-size: 15px;
+    background-color: #f08080;
+    color: #fff;
+}
+
+.contact .btn:hover {
+    
+    background-color: #a85959 !important;
+    color: #fff !important;
+}
+#map { 
+        height: 200px; 
+        width: 90%;
+        margin-left: auto;margin-right:auto;margin-bottom:250px;
+    } 
+    img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.team img {
+    
+    height: 150px;
+    width: 150px;
+    margin-top: 10px;
+    border-radius: 50%;
+    
+
+}
+
+#col1{
+    transition: transform .2s;
+}
+#col1:hover  {
+  -ms-transform: scale(1.5); /* IE 9 */
+  -webkit-transform: scale(1.5); /* Safari 3-8 */
+  transform: scale(1.5); 
+  }
+  #col2{
+    transition: transform .2s;
+    
+}
+#col2:hover  {
+  -ms-transform: scale(1.5); /* IE 9 */
+  -webkit-transform: scale(1.5); /* Safari 3-8 */
+  transform: scale(1.2); 
+  }
+
+      .ct-btn-scroll {   
+        z-index: 9;
+       
+        -webkit-transition: background-color 0.25s ease-in-out;
+        transition: background-color 0.25s ease-in-out;
+        }
+
+        .team {
+    
+    padding: 50px 0 80px;
+    text-align: center;
+    
+}
+.disc{
+	   padding: 50px 0 80px;
+    text-align: center;
+
+}
+.disc h4{
+	    margin: 20px 0 20px;
+    color: #4c4c4c;
+}
+.disc p {
+	    color: #737373;
+}
+
+.team b,
+.team h2,
+.team h4 {
+    
+    margin: 20px 0 20px;
+    color: #4c4c4c;
+    
+}
+
+
+.team p {
+    
+    color: #737373;
+}
+        .footer {
+    
+    padding: 30px;
+    color: #cccccc;
+    background-color: #222222;
+    position: relative;
+}
+
+.footer .social {
+    
+    font-size: 20px;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    padding: 5px;
+    border: 1px solid #cccccc;
+    margin-bottom: 10px;
+    margin-right: 5px;
+}
+@media only screen and (max-width:720px){
+    #col1{
+        
+        padding-top:80px;
+    }
+    .parallax-window {
+        
+       width:600px;
+       height:1000px;
+          
+}
+    .container{
+        width:550px;
+        margin-left:20px;
+    }
+    .footer{
+        width:600px;
+    }
+    #col2:hover  {
+  -ms-transform: scale(1.5); /* IE 9 */
+  -webkit-transform: scale(1.5); /* Safari 3-8 */
+  transform: scale(1.1); 
+  }
+  .loc{
+      margin-left:100px;
+  }
+  .loc1{
+      margin-left:100px;
+  }
+  #map{
+      width:400px;
+  }
+}
+
+    </style>
+
+</head>
+<body>
+        <div class="parallax">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top  scrolling-navbar">
+            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto mx-auto">
+                          <li class="nav-item ">
+                            <a class="nav-link" href="Login&sign.php">User<span class="sr-only">(current)</span></a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="admin_login.php">Admin</a>
+                          </li>
+                          <li class="nav-item">
+                                <a class="nav-link ct-btn-scroll ct-js-btn-scroll" href="#team">About Us</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link ct-btn-scroll ct-js-btn-scroll" href="#contact">Contact Us</a>
+                              </li>
+                          
+                        </ul>
+                    
+                      </div>
+    </nav>
+        <div class="parallax-window" data-parallax="scroll" data-image-src="ui19.jpg" >
+                <h1 align="center" style="padding:300px 0 0 0;font-size:60px;color:white;" >Event Management </h1>
+        </div>
+        
+    </div>
+
+    <div class="intoduction">
+    	<div class="container">
+    		<h6 align="center" style="padding: 10px 0 0 0;font-size: 50px"> Welcome to Event Planner</h6>
+    			<p style="font-size: 20px;text-align:justify;">Where Creativity meets Definition and Expertise meets Innovation. we are specializes in creating beautiful and unique Weddings, Social Engagements, Corporate Events, product launch and many more. We provide a multitude of services ranging from Day-of to Full Service Event Coordination, and everything in between. Your coordinator will collaborate with you to produce an unforgettable event that will be tailored to you and your vision. During a complimentary initial consultation, you will have the opportunity to look through our portfolios, learn more about our services and ask any questions you may have. Once we determine what services are needed through this consultation, a proposal will be created and customized especially to your needs.</p>
+    </div>
+
+
+
+    <div id="discription" class="disc">
+	    <div class="container">
+	    	<div class="row">
+	    	<div class="col-lg-3 col-md-3" id="col2">
+	    		<img src="note1.png" class="img-circle rounded-corner" alt="">
+	    		<h4>Experience and Expertise</h4>
+	    		<p>We are Handing Events from a long time and have worked extensively with companies from different industries.</p>
+	    	</div>
+
+	    	<div class="col-lg-3 col-md-3" id="col2">
+	    		<img src="network2.png" class="img-circle rounded-corner" alt="">
+	    		<h4>Vendor Network</h4>
+	    		<p>We have One of the best Pan India Level Vendor Network for Smooth Functioning at any Part of the Country.</p>
+	    	</div>
+
+	    	<div class="col-lg-3 col-md-3" id="col2">
+	    		<img src="rupee1.png" class="img-circle rounded-corner" alt="">
+	    		<h4>Cost Effective</h4>
+	    		<p>We understand Clients Needs visa vis his Wants to make the Event Cost Effective</p>
+	    	</div>
+
+	    	<div class="col-lg-3 col-md-3" id="col2">
+	    		<img src="trans1.png" class="img-circle rounded-corner" alt="">
+	    		<h4>Transparent</h4>
+	    		<p>Our Transparency Policy with our client regarding our working makes the Event Successful</p>
+	    	</div>
+	    </div>
+	</div>
+</div>
+
+<div id ="ad">
+
+<a href="https://www.000webhost.com/1182597.html" target="_blank"><img src="https://www.000webhost.com/images/banners/728x90/1.jpg" alt="Web hosting" width="400" height="90" border="0" /></a>
+    </div>
+    <!--about us -->
+    
+    <div id="team" class="team">
+            <div class="container">
+                <h1 align="center" style="padding:0 0 40px 0;font-size:50px">Meet Our Team</h1>
+                <div class="row">
+                    
+                    <div class="col-lg-3 col-md-3 " id="col1" >
+                        <img src="mahendraPhoto.jpg" class="img-circle rounded-corner" alt="">
+                        <h4>Mahendra Sutar</h4>
+                        <b>CEO and Founder</b>
+                        <p>IT Engineer</p>
+                        
+                    </div>
+                    <div class="col-lg-3 col-md-3 " id="col1">
+                        <img src="ui21.jpg" class="img-circle rounded-corner" alt="">
+                        <h4>Prathmesh Godse</h4>
+                        <b>CEO and Founder</b>
+                        <p>IT Engineer</p>
+                        
+                    </div>
+                    <div class="col-lg-3 col-md-3 " id="col1">
+                        <img src="ronakPhoto.jpg" class="img-circle rounded-corner" alt="">
+                        <h4>Ronak Kothari</h4>
+                        <b>CEO and Founder</b>
+                        <p>IT Engineer</p>
+                        
+                    </div>
+                    <div class="col-lg-3 col-md-3 " id="col1">
+                        <img src="ui20.jpg" class="img-circle rounded-corner" alt="">
+                        <h4>Suraj Pokharkar</h4>
+                        <b>CEO and Founder</b>
+                        <p>IT Engineer</p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <div>
+
+    <!--contact_us -->
+
+
+      <div id="contact" class="contact">
+  <div class="container">
+        <h1 align="center" style="padding:0 0 10px 0;font-size:50px">Contact Us</h1>
+       <form id="reg" role="form" action="conLand.php" method="GET">
+      <div class="row">
+            
+         
+          <div class="col-lg-6 col-md-6">
+              <div class="input-group input-group-lg " >
+                  
+                  <input type="text" class="form-control" aria-describedby="sizing-addon1" placeholder="Full Name" name="name">
+              </div>
+              <div class="input-group input-group-lg ">
+                  <input type="text" class="form-control" aria-describedby="sizing-addon1" placeholder="Email Address" name="email">
+              </div>
+              <div class="input-group input-group-lg" >
+                  <input type="text" class="form-control" aria-describedby="sizing-addon1" placeholder="Phone Number" name="ph">
+              </div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+              <div class="input-group " >
+                  <textarea name="txtMes" id="" cols="80" rows="6" class="form-control" placeholder="Enter Message"  ></textarea>
+              </div>
+              <button class="btn btn-lg">Submit Your Message </button>
+          </div>
+          
+      </div>
+      </form>
+  </div>
+</div>
+<div class="loc">
+<div class="loc1">
+<img src="location.png " >
+<h1 align="center" style="padding:0 0 10px 0;font-size:50px">Location</h1>
+</div>
+<div id="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3772.6693193422466!2d73.12548141437557!3d18.990206059599647!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7e866de88667f%3A0xc1c5d5badc610f5f!2sPillai%20College%20of%20Engineering%2C%20New%20Panvel!5e0!3m2!1sen!2sin!4v1568118506918!5m2!1sen!2sin" width="100%" height="400px" frameborder="0" style="border:0;border-radius: 30px" allowfullscreen=""></iframe>
+
+</div> 
+
+
+</div>
+  <!--footer-->
+  <div id="footer" class="footer">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-4 col-md-4">
+                  <h4 >Contact Us</h4>
+                  <p> Pillai College Of Engineering,New Panvel</p>
+                  <p> info@media.com</p>
+                  <p> +1 222 222 2222</p>
+                  <p> www.media.com</p>
+              </div>
+              <div class="col-lg-4 col-md-4">
+                  <h4>About</h4>
+                  <p> About Us</p>
+                  <p> Privacy</p>
+                  <p> Term & Condition</p>
+              </div>
+              <div class="col-lg-4 col-md-4">
+                  <h4>Stay in touch</h4>
+                  <a href="#" class="fa fa-facebook-square" style="font-size: 40px;"></a>
+                  <a href="#" class="fa fa-twitter-square" style="font-size: 40px;"></a>
+                  <a href="#" class="fa fa-instagram" style="font-size: 40px;"></a>
+                  <a href="#" class="fa fa-pinterest-square" style="font-size: 40px;"></a>
+                  <br>
+                 
+              </div>
+          </div>
+      </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+         
+      
+      
+      
+
+
+
+
+
+
+    
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="/parallax/parallax.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/parallax.js/1.4.2/parallax.min.js"></script>
+    <script>
+        $('.parallax-window').parallax({imageSrc: 'ui19.jpg'});
+
+    </script>
+    <script>
+        $(function () {
+        $(document).scroll(function () {
+          var $nav = $(".fixed-top");
+          $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+        });
+      });
+      $(document).ready(function(){
+        $("a").on('click', function(event) {
+          if (this.hash !== "") {
+            event.preventDefault();
+            var hash = this.hash;
+            $('html, body').animate({
+              scrollTop: $(hash).offset().top
+            }, 800, function(){
+              window.location.hash = hash;
+            });
+          }
+        });
+      });
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="scroll-down.js"></script>
+    
+
+</body>
+</html>

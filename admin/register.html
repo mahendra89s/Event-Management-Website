@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/1ec2e96fdf.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+      <title>Registration</title>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Registration Form</h2>
+      <div class="form-group">
+        <!---label for="">Register As : </label>
+        <select class="form-control" name="">
+          <option value="Explorer">Explorer</option>
+          <option value="Admin">Admin</option>
+        </select><br><br-->
+
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fas fa-user"></i></span>
+          <input type="text" class="form-control" name="" value="" placeholder="Enter Full Name">
+        </div>
+
+        <div class="input-group">
+          <span class="input-group-addon" style="font-weight:bold">Select Gender</span>
+          <select class="form-control " name="sel1">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+          <input id="email" type="text" class="form-control" name="email" placeholder="Email">
+        </div>
+
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fas fa-phone-alt"></i></span>
+          <input type="number" name="" class="form-control" value="" placeholder="Phone Number">
+        </div>
+
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fas fa-lock"></i></span>
+          <input type="password"  class="form-control" name="" value="" placeholder="Enter Password">
+        </div>
+
+
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fas fa-lock"></i></span>
+          <input type="password"  class="form-control" name="" value="" placeholder="Repeat Password">
+          </div>
+
+
+        <button class="btn btn-primary" type="button" name="submit">Register</button>
+
+        <h3>already register <a href="Login.html" class="btn btn-default btn-md">Log In</a></h3>
+        
+      </div>
+    </div>
+  </body>
+</html>

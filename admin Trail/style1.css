@@ -1,0 +1,148 @@
+*{
+  padding: 0;
+  margin: 0;
+  font-family: Trebuchet MS;
+}
+.container{
+  padding: 0;
+  margin: 0;
+  font-family: serif , Times New Roman;
+}
+.header{
+  top: 0;
+  height: 60px;
+  width: 100%;
+  background-color: rgba(85, 217, 240);
+ font-weight:200px;
+  z-index: 5;
+  text-align: center;
+}
+.side-nav{
+  left: 0;
+  top: 70px;
+  width: 100%;
+  background-color: rgb(120, 112, 119);
+  height: 100%;
+  z-index: 3;
+  padding-top: 45px;
+  
+}
+.side-nav ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background:#857b7b;
+  
+}
+
+.side-nav ul li{
+  padding: 20px 10px;
+  border: 1px solid black;
+  width: 100%
+  
+
+}
+
+
+.side-nav ul li a{
+  text-decoration: none;
+  color:white;
+  -webkit-transition: font-size .3s ease;
+  -moz-transition: font-size .3s ease;
+  -o-transition: font-size .3s ease;
+  transition: font-size .3s ease;
+}
+.side-nav ul li a:hover{
+  text-decoration: none;
+  color:black;
+  font-size:30px;
+}
+.side-nav ul li a i{
+  color:#333;
+  font-size: 24px;
+}
+
+
+
+
+@media screen and (max-width:750px) {
+  .header{
+    height: 75px;
+    padding-top: 5px;
+  }
+  .side-nav{
+      width: 80px;
+      padding-top: 75px;
+    }
+  .side-nav ul li{
+      text-align: center;
+  }
+  .side-nav ul li span:nth-child(2){
+    display: none;
+  }
+  .side-nav ul li i{
+    font-size: 30px;
+  }
+}
+
+
+.panel-info{
+  margin-top: 150px;
+  margin-left:150px;
+  margin-right:150px;
+  
+}
+.panel-body ,.panel-heading{
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: .3px;
+  word-spacing: 1px;
+}
+.form-container{
+  position: relative;
+  margin-top:300px ;
+  margin-left: 100px;
+  margin-right: 20px;
+}
+
+@media screen and (min-width:1024px) {
+  .side-nav{
+      width: 200px;
+    }
+  .side-nav ul li{
+      text-align: left;
+  }
+  .side-nav ul li span:nth-child(2){
+    display: inline;
+  }
+  .side-nav ul li i{
+    font-size: 20px;
+  }
+  .side-nav ul li span:nth-child(2){
+    font-size: 20px;
+    text-align: center;
+    margin-left: 10px;
+  }
+}
+      table {
+border-collapse: separate;
+width: 100%;
+color: #588c7e;
+font-family: monospace;
+font-size: 17px;
+text-align: left;
+
+margin-left:40px;
+border: 1px solid black;
+}
+th {
+background-color: #414141;
+color: white;
+
+}
+tr:nth-child(even) {background-color: #f2f2f2}
+
+
+
+ 

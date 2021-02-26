@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    <title>Hello, world!</title>
+    <style type="text/css">
+      body{
+        font-family: Trebuchet MS;
+
+
+      }
+      .fixed-top{
+        background-color: transparent !important;
+
+      }
+
+      .fixed-top.scrolled {
+        background-color:#04332b !important;
+        transition: background-color 200ms linear;
+
+      }
+      .d-block{
+            max-width: 100%;
+            max-height: 100vh;
+            margin: auto;
+        }
+
+      .navbar-brand{
+        font-size: 40px;
+        border:solid;
+        border-radius: 10px;
+        padding:5px;
+
+      }
+      
+        .carousel {
+          background-image: url("ui14.jpg");
+          height:680px;
+         
+          background-attachment: fixed;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+          
+          
+      }
+      .ct-btn-scroll {
+        width: 49px;
+        height: 49px;
+
+        bottom: 30px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        padding-top: 500px;
+        z-index: 9;
+        border-radius: 50%;
+        -webkit-transition: background-color 0.25s ease-in-out;
+        transition: background-color 0.25s ease-in-out;
+        }
+
+        .team {
+    
+    padding: 50px 0 80px;
+    text-align: center;
+    
+}
+
+.team b,
+.team h2,
+.team h4 {
+    
+    margin: 20px 0 20px;
+    color: #4c4c4c;
+}
+#col1{
+    transition: transform .2s;
+}
+#col1:hover  {
+  -ms-transform: scale(1.5); /* IE 9 */
+  -webkit-transform: scale(1.5); /* Safari 3-8 */
+  transform: scale(1.5); 
+  }
+
+.team p {
+    
+    color: #737373;
+}
+
+.team img {
+    
+    height: 150px;
+    width: 150px;
+    margin-top: 10px;
+    border-radius: 50px;
+}
+
+
+
+
+    </style>
+    <body>
+      <div class="parallax">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top  scrolling-navbar">
+      <a class="navbar-brand bg-gradient-success"  href="landingpg.html" id="demo" onmouseover="mouseOver()" onmouseout="mouseOut()"> Event Planner </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+          <a class="nav-link " href="landingpg.html">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="eventbooking.html">Create Event</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link" href="#">View Booked Event</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Services</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="aboutus.html">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contactus.html">Contact Us</a>
+        </li>
+
+      </ul>
+      
+    </div>
+    </nav>
+  
+    <div class="carousel" >
+        
+        <div class="carousel-caption" >
+          <h1 align="center" style="padding:0 0 180px 0;font-size:100px">About Us</h1>
+          <a class="ct-btn-scroll ct-js-btn-scroll" href="#team"><img alt="Arrow Down Icon" src="https://www.solodev.com/assets/anchor/arrow-down.png"></a>
+        </div>
+    
+    </div>
+  </div>
+    
+    <div id="team" class="team">
+      <div class="container">
+          <h1 align="center" style="padding:0 0 40px 0;font-size:100px">Meet Our Team</h1>
+          <div class="row">
+              
+              <div class="col-lg-3 col-md-3 " id="col1" >
+                  <img src="mahendraPhoto.jpg" class="img-circle" alt="">
+                  
+                  <div id="d"></div>
+                  <script>
+                  
+
+
+                loadXMLDoc1();
+function loadXMLDoc1() {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      myFunction1(this);
+    }
+  };
+  xmlhttp.open("GET", "abt.xml", true);
+  xmlhttp.send();
+}
+function myFunction1(xml) {
+  
+  var xmlDoc = xml.responseXML;
+  var x = xmlDoc.getElementsByTagName("member");
+  console.log(x);
+
+  
+    
+     out = "<div>"
+
+    Name = "<div style='margin-top:10px;'>" +x[0].getElementsByTagName("Name")[0].childNodes[0].nodeValue +"</div>"
+   
+    desgination = "<div style='margin-top:10px;'> " +x[0].getElementsByTagName("desgination")[0].childNodes[0].nodeValue+"</div>"
+    qual = "<div style='margin-top:10px;'> " +x[0].getElementsByTagName("qual")[0].childNodes[0].nodeValue+"</div>"
+   
+    out  = out +Name+ desgination+qual+"</div>"
+    document.getElementById("d").innerHTML = out;
+  
+  
+}
+</script>
+
+
+                  
+              </div>
+              <div class="col-lg-3 col-md-3 " id="col1">
+                  <img src="ui21.jpg" class="img-circle" alt="">
+                  <div id="d1"></div>
+                  <script>
+                  
+
+
+                loadXMLDoc2();
+function loadXMLDoc2() {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      myFunction2(this);
+    }
+  };
+  xmlhttp.open("GET", "abt.xml", true);
+  xmlhttp.send();
+}
+function myFunction2(xml) {
+  
+  var xmlDoc = xml.responseXML;
+  var x = xmlDoc.getElementsByTagName("member");
+  console.log(x);
+
+  
+    
+     out = "<div>"
+
+    Name = "<div style='margin-top:10px;'>" +x[1].getElementsByTagName("Name")[0].childNodes[0].nodeValue +"</div>"
+   
+    desgination = "<div style='margin-top:10px;'> " +x[1].getElementsByTagName("desgination")[0].childNodes[0].nodeValue+"</div>"
+    qual = "<div style='margin-top:10px;'> " +x[1].getElementsByTagName("qual")[0].childNodes[0].nodeValue+"</div>"
+   
+    out  = out +Name+ desgination+qual+"</div>"
+    document.getElementById("d1").innerHTML = out;
+  
+  
+}
+</script>
+
+                  
+              </div>
+              <div class="col-lg-3 col-md-3 " id="col1" >
+                  <img src="ronakPhoto.jpg" class="img-circle" alt="">
+                  <div id="d2"></div>
+                  <script>
+                  
+
+
+                loadXMLDoc3();
+function loadXMLDoc3() {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      myFunction3(this);
+    }
+  };
+  xmlhttp.open("GET", "abt.xml", true);
+  xmlhttp.send();
+}
+function myFunction3(xml) {
+  
+  var xmlDoc = xml.responseXML;
+  var x = xmlDoc.getElementsByTagName("member");
+  console.log(x);
+
+  
+    
+     out = "<div>"
+
+    Name = "<div style='margin-top:10px;'>" +x[2].getElementsByTagName("Name")[0].childNodes[0].nodeValue +"</div>"
+   
+    desgination = "<div style='margin-top:10px;'> " +x[2].getElementsByTagName("desgination")[0].childNodes[0].nodeValue+"</div>"
+    qual = "<div style='margin-top:10px;'> " +x[2].getElementsByTagName("qual")[0].childNodes[0].nodeValue+"</div>"
+   
+    out  = out +Name+ desgination+qual+"</div>"
+    document.getElementById("d2").innerHTML = out;
+  
+  
+}
+</script>
+
+                  
+              </div>
+              <div class="col-lg-3 col-md-3 " id="col1">
+                  <img src="ui20.jpg" class="img-circle" alt="">
+                  <div id="d3"></div>
+                  <script>
+                  
+
+
+                loadXMLDoc4();
+function loadXMLDoc4() {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      myFunction4(this);
+    }
+  };
+  xmlhttp.open("GET", "abt.xml", true);
+  xmlhttp.send();
+}
+function myFunction4(xml) {
+  
+  var xmlDoc = xml.responseXML;
+  var x = xmlDoc.getElementsByTagName("member");
+  console.log(x);
+
+  
+    
+     out = "<div>"
+
+    Name = "<div style='margin-top:10px;'>" +x[3].getElementsByTagName("Name")[0].childNodes[0].nodeValue +"</div>"
+   
+    desgination = "<div style='margin-top:10px;'> " +x[3].getElementsByTagName("desgination")[0].childNodes[0].nodeValue+"</div>"
+    qual = "<div style='margin-top:10px;'> " +x[3].getElementsByTagName("qual")[0].childNodes[0].nodeValue+"</div>"
+   
+    out  = out +Name+ desgination+qual+"</div>"
+    document.getElementById("d3").innerHTML = out;
+  
+  
+}
+</script>
+
+                  
+              </div>
+          </div>
+      </div>
+  </div>
+   
+
+
+
+
+
+
+
+
+     <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      function mouseOver() {
+        document.getElementById("demo").style.color = "#607D8B";
+          }
+
+      function mouseOut() {
+        document.getElementById("demo").style.color = "white";
+          }
+
+      $(function () {
+        $(document).scroll(function () {
+          var $nav = $(".fixed-top");
+          $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+        });
+      });
+      $(document).ready(function(){
+        $("a").on('click', function(event) {
+          if (this.hash !== "") {
+            event.preventDefault();
+            var hash = this.hash;
+            $('html, body').animate({
+              scrollTop: $(hash).offset().top
+            }, 800, function(){
+              window.location.hash = hash;
+            });
+          }
+        });
+      });
+      
+
+    </script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <script src="scroll-down.js"></script>
+      
+      
+</body>

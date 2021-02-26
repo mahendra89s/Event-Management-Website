@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+form {
+  border: 0px solid #f1f1f1;
+  width: 350px;
+  margin: 0 auto;
+  background-color: ;
+  border-radius: 15px;
+  box-sizing: border-box;
+  background:rgba(0,0,0,0.1);
+  box-shadow: 10px 10px 20px;
+}
+body {
+  font-family: Trebuchet MS;
+  background-color: white;
+  background-image: url(ui7m.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+  
+
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 90%;
+  padding: 15px;
+  margin: 5px 0 2px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 50px 50px 50px 50px;
+  outline: none;
+  background-color: #D1C4E9;
+  border-color: gray;
+
+}
+
+input:hover {
+  opacity: 0.8;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+ input[type='radio']:after {
+        width: 15px;
+        height: 15px;
+        border-radius: 15px;
+        top: -2px;
+        left: -1px;
+        position: relative;
+        background-color: #d1d3d1;
+        content: '';
+        display: inline-block;
+        visibility: visible;
+        border: 2px solid white;
+        cursor: pointer;
+    }
+
+
+    input[type='radio']:checked:after {
+        width: 15px;
+        height: 15px;
+        border-radius: 15px;
+        top: -2px;
+        left: -1px;
+        position: relative;
+        background-color: #B71C1C;
+        content: '';
+        display: inline-block;
+        visibility: visible;
+        border: 2px solid white;
+    }
+input[type='radio']:hover{
+  opacity: 0.3;
+}
+
+
+
+.registerbtn {
+  background-color:  #B71C1C;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 80px 0px 80px;
+  border: none;
+  cursor: pointer;
+  width: 50%;
+  opacity: 0.9;
+  border-radius: 50px 50px 50px 50px;
+}
+
+.registerbtn:hover {
+  opacity: 0.4;
+}
+hr {
+    border: none;
+    background-color: none;
+    height: 0.5px;
+}
+
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  
+  text-align: center;
+}
+a{
+  color: #3E2723;
+
+}
+
+</style>
+</head>
+<body>
+
+<form >
+  <div class="container">
+    <h2 align="center">Register</h2>
+    <p>Please fill in this form to create an account.</p>
+    <label for="name"><b>Name</b></label>
+    <input type="text" placeholder="Enter Name" name="name" required>
+     <hr>
+    <label><b>Gender</b></label><br>
+   
+    <input type="radio" name="gender" value="Male"> <b> Male
+    <input type="radio" name="gender" value="Female">  Female
+    <input type="radio" name="gender" value="Other">  Other</b><br> 
+    <hr>
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email"  required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+
+    <label for="psw-repeat"><b>Repeat Password</b></label>
+    <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+  
+    <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+
+    <button type="submit" class="registerbtn">Register</button>
+  </div>
+  
+  <div class="container signin">
+    <label>Already have an account? <a href="a.html">Sign in</a>.</label>
+  </div>
+</form>
+
+</body>
+</html>

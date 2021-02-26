@@ -1,0 +1,729 @@
+<?php
+
+    // Database Connection code
+	$servername = "localhost";
+	$username = "id10875101_eventplanner";
+	$password = "eventplanner";
+	$dbname = "id10875101_event";
+	$con = mysqli_connect($servername,$username,$password,$dbname);
+	if(!$con)
+	{
+		die("Error : ".mysqli_connect_error());
+	}
+	session_start();
+	 
+	if(isset($_SESSION['User'])){
+	$ff = $_GET['q'];
+    echo $ff;
+	
+	$email=$_SESSION['User'];
+	$eventtype = $_GET['eventtype'];
+	$eventplace = $_GET['eventplace'];
+	$noguest = $_GET['noguest'];
+	$date = $_GET['date'];
+	$equi = $_GET['equi'];
+	
+	$food = $_GET['food'];
+	
+	$light = $_GET['light'];
+	$flowers  = $_GET['flowers'];
+	$chairs= $_GET['chairs'];
+	
+	
+	
+    
+    if(!$con)
+	{
+		die("Error : ".mysqli_connect_error());
+	}
+	
+	$eq="";  
+    foreach($equi as $equi1)  
+        {  
+      $eq .= $equi1.",";  
+        }  
+        
+    
+    $foo="";  
+    foreach($food as $food1)  
+        {  
+      $foo .= $food1.",";  
+        } 
+        
+        
+    $ch="";  
+    foreach($chairs as $chairs1)  
+        {  
+      $ch .= $chairs1.",";  
+        } 
+    
+    if(isset($_GET['submit'])){
+        
+    $ff = $_GET['q'];
+    echo $ff;
+	$con->query("INSERT INTO bookevent (eventtype,eventplace,no_guests,date,equip,food,light,flowers,chair,email)
+					VALUES ('$eventtype', '$eventplace', '$noguest', '$date', '$eq', '$foo', '$light', '$flowers', '$ch','$email');");
+    
+    header("location:payment.php");
+    }
+					
+	}
+
+?>
+
+
+
+
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    <title>Hello, world!</title>
+    <style type="text/css">
+      body{
+        font-family: Trebuchet MS;
+
+
+      }
+      .fixed-top{
+        background-color: transparent !important;
+
+      }
+
+      .fixed-top.scrolled {
+        background-color:#171818 !important;
+        transition: background-color 200ms linear;
+
+      }
+      .d-block{
+            max-width: 100%;
+            max-height: 100vh;
+            margin: auto;
+        }
+
+      .navbar-brand{
+        font-size: 40px;
+        border:solid;
+        border-radius: 10px;
+        padding:5px;
+
+      }
+      
+        .carousel {
+          background-image: url("ui17.jpg");
+          height:680px;
+         
+          background-attachment: fixed;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+          
+          
+      }
+      .ct-btn-scroll {
+        width: 49px;
+        height: 49px;
+
+        bottom: 30px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        padding-top: 500px;
+        z-index: 9;
+        border-radius: 50%;
+        -webkit-transition: background-color 0.25s ease-in-out;
+        transition: background-color 0.25s ease-in-out;
+		}
+		h2{
+text-align:center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+.container {
+  background-color: #cfcccc85;
+  padding: 3px 20px 20px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  width:600px;
+  margin-bottom: 40px;
+  font-family: Andale Mono, monospace;
+}
+
+input[type=number],input[type=date],input[type=text]{
+  width: 50%;
+  padding: 12px 10px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 10px 10px 10px 10px;
+  outline: none;
+  background-color: #BDBDBD;
+  border-color: gray;
+  
+}
+
+input:hover {
+  opacity: 0.8;
+}
+
+input:focus{
+  background-color: white;
+}
+select{
+	width:65%;
+	height:30px;
+	border-radius: 10px;
+}
+input[type="checkbox"]:checked+span { 
+	font-weight: bold;
+	font-size:large;
+ }
+ .btn {
+  font-size: 16px;
+  width: 163px;
+  height: 48px;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+  letter-spacing: 1px;
+  border: none;
+  border-radius: 23px;
+}
+
+
+
+.btn:focus {
+  outline: none;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+}
+select{
+    outline:none;
+}
+
+
+	</style>
+    <body >
+      <div class="parallax">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top  scrolling-navbar">
+      <a class="navbar-brand bg-gradient-success"  href="landingpg.php" id="demo" onmouseover="mouseOver()" onmouseout="mouseOut()"> Event Planner </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+          <a class="nav-link " href="landingpg.php">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="eventbooking.html">Create Event</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link" href="viewbooked.php">View Booked Event</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="ServicePg/ServPage.php">Services</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="aboutus.html">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contactus.html">Contact Us</a>
+        </li>
+
+      </ul>
+      
+    </div>
+    </nav>
+    <div class="sec">
+    <div class="carousel" >
+        
+        <div class="carousel-caption" >
+          <h1 align="center" style="padding:0 0 180px 0;font-size:100px;">Book An Event</h1>
+          <a class="ct-btn-scroll ct-js-btn-scroll" href="#bevnt"><img alt="Arrow Down Icon" src="https://www.solodev.com/assets/anchor/arrow-down.png"></a>
+        </div>
+    
+    </div>
+  
+  <h1 align="center" style="padding:40px 0 40px 0;font-size:100px;"  id="bevnt">Book an Event</h1>
+  
+	   
+	  <div class="container">
+			 <form id="form"  role="form" action="eventbookdb.php" method="GET"  >  
+		
+		
+  
+			
+			<div class="form-group row" style="padding: 10px 0 0 0 ;">
+					<label for="eventtype" class="col-sm-4 col-form-label"><b><h5>Event Type</h5></b></label>
+					<div class="col-sm-8">
+							<select name="eventtype" id="eventype" onchange=" getTotal()" required>
+									<option value="wedding">Wedding</option>
+									<option value="farewell">Farewell</option>
+									<option value="birthday">Birthday</option>
+									
+							  </select>
+					</div>
+			</div>
+			<div class="form-group row">
+					<label for="eventplace" class="col-sm-4 col-form-label "><b><h5>Event Place</h5></b></label>
+					<div class="col-sm-8">
+							<select name="eventplace" id="evntplc"  onchange=" getTotal()" required>
+									<option value="Royalpalace">Royal Palace(Rajastan)</option>
+									<option value="tajhotel">TAJ Hotel</option>
+									<option value="oberoihotel">Oberoi Hotel</option>
+									<option value="mysorepalace">Mysore Palace</option>
+							  </select>
+					</div>
+			</div>	
+			<div class="form-group row">
+					<label for="noguest" class="col-sm-4 col-form-label"><b><h5>No. of Guests</h5></b></label>
+					<div class="col-sm-8">
+							<input type="number" name="noguest" min="0" required>
+					</div>
+			</div>
+			<div class="form-group row">
+					<label for="date" class="col-sm-4 col-form-label"><b><h5>Date</h5></b></label>
+					<div class="col-sm-8">
+							<input type="date" name="date" required><br>
+					</div>
+			</div>
+			<div class="form-group row">
+					<label for="equipment" class="col-sm-4 col-form-label"><b><h5>Equipment</h5></b></label>
+					<div class="col-sm-8">
+							<input type="checkbox" name="equi[]" value="DJ" id="equi1" onclick="getTotal()"><span> DJ</span><br>
+							<input type="checkbox" name="equi[]" value="Stage" id="equi2"  onclick="getTotal()"><span> Stage</span><br>
+							<input type="checkbox" name="equi[]" value="Mic" id="equi3" onclick="getTotal()"><span> Mic and Speaker</span>
+					</div>
+			</div>
+			  
+			<div class="form-group row">
+					<label for="food" class="col-sm-4 col-form-label"><b><h5>Food</h5></b></label>
+					<div class="col-sm-8">
+					<input type="checkbox" name="food[]" value="Breakfast" id="foodd1" onclick="getTotal()"><span> Breakfast</span><br>
+					<input type="checkbox" name="food[]" value="Lunch" id="foodd2" onclick="getTotal()"><span> Lunch</span><br>
+					<input type="checkbox" name="food[]" value="Tea" id="foodd3" onclick=" getTotal()"><span> Tea & Snacks</span><br>
+					<input type="checkbox" name="food[]" value="dinner" id="foodd4" onclick=" getTotal()"><span> Dinner</span><br>
+					<input type="checkbox" name="food[]" value="veg" id="foodd5" onclick=" getTotal()"><span> Veg</span><br>
+				    <input type="checkbox" name="food[]" value="veg&nonveg" id="foodd6" onclick=" getTotal()"><span> Veg & NonVeg</span>
+					</div>
+			</div>
+			<div class="form-group row">
+					<label for="Decoration" class="col-sm-4 col-form-label"><b><h5>Decoration</h5></b></label>
+					<div class="col-sm-8">
+							<label for="lighting" >Lighting :</label><br>  
+				<select name="light" id="lght" onchange=" getTotal()" required>
+					
+					<option value="normal">Normal</option>
+					<option value="delux">Delux</option>
+					<option value="royal">Royal</option>
+			  </select><br>
+			  <label for="flowers" >Flowers :</label><br>
+				<select name="flowers" id="flw" onchange=" getTotal()" required>
+					
+					<option value="normal">Normal</option>
+					<option value="delux">Delux</option>
+					<option value="royal">Royal</option>
+			  </select><br>
+			  <label for="chairs" >Chairs :</label><br>
+					<input type="checkbox" name="chairs[]" value="chairs" id="chairr1" onclick=" getTotal()"> <span>Chairs</span><br>
+				    <input type="checkbox" name="chairs[]" value="chairs&sofa"  id="chairr2" onclick=" getTotal()"><span> Chairs & sofa</span><br>
+					
+					</div>
+			</div>
+
+
+
+			 <div id="totalPrice" name="totalprice"></div> 
+			<button type="submit" class="btn btn-dark" style="margin:0 0 0 220px;" name="submit">Submit</button><br><br>
+			
+			</form>
+			  
+			 
+		  
+			
+			 </div>
+		    
+			</div>
+		 
+  </div>
+
+
+
+  
+     <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      function mouseOver() {
+        document.getElementById("demo").style.color = "#607D8B";
+          }
+
+      function mouseOut() {
+        document.getElementById("demo").style.color = "white";
+          }
+
+      $(function () {
+        $(document).scroll(function () {
+          var $nav = $(".fixed-top");
+          $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+        });
+      });
+      $(document).ready(function(){
+        $("a").on('click', function(event) {
+          if (this.hash !== "") {
+            event.preventDefault();
+            var hash = this.hash;
+            $('html, body').animate({
+              scrollTop: $(hash).offset().top
+            }, 800, function(){
+              window.location.hash = hash;
+            });
+          }
+        });
+      });
+      
+
+    </script>
+    
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <script src="scroll-down.js"></script>
+      <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+     
+    <script>
+        var eventtype = new Array();
+ eventtype["wedding"]=20000;
+ eventtype["farewell"]=25000;
+ eventtype["birthday"]=30000;
+ 
+ function etype()
+{
+    var e1=0;
+    //Get a reference to the form id="cakeform"
+    var theForm = document.forms["form"];
+    //Get a reference to the select id="filling"
+     var e2 = theForm.elements["eventype"];
+ 
+    //set cakeFilling Price equal to value user chose
+    //For example filling_prices["Lemon".value] would be equal to 5
+    e1 = eventtype[e2.value];
+ 
+    //finally we return cakeFillingPrice
+    return e1;
+}
+
+ var eventplc = new Array();
+ eventplc["Royalpalace"]=21000;
+ eventplc["tajhotel"]=24000;
+ eventplc["oberoihotel"]=20000;
+ eventplc["mysorepalace"]=70000;
+ 
+ function eplc()
+{
+    var p1=0;
+    //Get a reference to the form id="cakeform"
+    var theForm = document.forms["form"];
+    //Get a reference to the select id="filling"
+     var p2 = theForm.elements["evntplc"];
+ 
+    //set cakeFilling Price equal to value user chose
+    //For example filling_prices["Lemon".value] would be equal to 5
+    p1 = eventplc[p2.value];
+ 
+    //finally we return cakeFillingPrice
+    return p1;
+}
+ 
+ var light = new Array();
+ light["normal"]=21000;
+ light["delux"]=24000;
+ light["royal"]=20000;
+ 
+ 
+ function lght()
+{
+    var l1=0;
+    //Get a reference to the form id="cakeform"
+    var theForm = document.forms["form"];
+    //Get a reference to the select id="filling"
+     var l2 = theForm.elements["light"];
+ 
+    //set cakeFilling Price equal to value user chose
+    //For example filling_prices["Lemon".value] would be equal to 5
+    l1 =light[l2.value];
+ 
+    //finally we return cakeFillingPrice
+    return l1;
+}
+ 
+ var flowers= new Array();
+ flowers["normal"]=21000;
+ flowers["delux"]=24000;
+ flowers["royal"]=20000;
+ 
+ function flws()
+{
+    var f1=0;
+    //Get a reference to the form id="cakeform"
+    var theForm = document.forms["form"];
+    //Get a reference to the select id="filling"
+     var f2 = theForm.elements["flw"];
+ 
+    //set cakeFilling Price equal to value user chose
+    //For example filling_prices["Lemon".value] would be equal to 5
+    f1 = flowers[f2.value];
+ 
+    //finally we return cakeFillingPrice
+    return f1;
+}
+ 
+ 
+ //first Equip
+ function Equi1()
+{
+    var equip=0;
+    //Get a reference to the form id="cakeform"
+    var theForm = document.forms["form"];
+    //Get a reference to the checkbox id="includecandles"
+    var equi1 = theForm.elements["equi1"];
+
+    //If they checked the box set candlePrice to 5
+    if(equi1.checked==true)
+    {
+        equip=5;
+    }
+    //finally we return the candlePrice
+    return equip;
+}
+
+//second Equip
+function Equi2()
+{
+    var equip=0;
+    //Get a reference to the form id="cakeform"
+    var theForm = document.forms["form"];
+    //Get a reference to the checkbox id="includecandles"
+    var equi1 = theForm.elements["equi2"];
+
+    //If they checked the box set candlePrice to 5
+    if(equi1.checked==true)
+    {
+        equip=5;
+    }
+    //finally we return the candlePrice
+    return equip;
+}
+//third Equip
+function Equi3()
+{
+    var equip=0;
+    //Get a reference to the form id="cakeform"
+    var theForm = document.forms["form"];
+    //Get a reference to the checkbox id="includecandles"
+    var equi1 = theForm.elements["equi3"];
+
+    //If they checked the box set candlePrice to 5
+    if(equi1.checked==true)
+    {
+        equip=5;
+    }
+    //finally we return the candlePrice
+    return equip;
+}
+ //first Food
+ function fod1()
+{
+    var foodd=0;
+    //Get a reference to the form id="cakeform"
+    var theForm = document.forms["form"];
+    //Get a reference to the checkbox id="includecandles"
+    var food1 = theForm.elements["foodd1"];
+
+    //If they checked the box set candlePrice to 5
+    if(food1.checked==true)
+    {
+        foodd=5;
+    }
+    //finally we return the candlePrice
+    return foodd;
+}
+//first Food
+ function fod2()
+{
+    var foodd=0;
+    //Get a reference to the form id="cakeform"
+    var theForm = document.forms["form"];
+    //Get a reference to the checkbox id="includecandles"
+    var food1 = theForm.elements["foodd2"];
+
+    //If they checked the box set candlePrice to 5
+    if(food1.checked==true)
+    {
+        foodd=5;
+    }
+    //finally we return the candlePrice
+    return foodd;
+}
+//first Food
+ function fod3()
+{
+    var foodd=0;
+    //Get a reference to the form id="cakeform"
+    var theForm = document.forms["form"];
+    //Get a reference to the checkbox id="includecandles"
+    var food1 = theForm.elements["foodd3"];
+
+    //If they checked the box set candlePrice to 5
+    if(food1.checked==true)
+    {
+        foodd=5;
+    }
+    //finally we return the candlePrice
+    return foodd;
+}
+//first Food
+ function fod4()
+{
+    var foodd=0;
+    //Get a reference to the form id="cakeform"
+    var theForm = document.forms["form"];
+    //Get a reference to the checkbox id="includecandles"
+    var food1 = theForm.elements["foodd4"];
+
+    //If they checked the box set candlePrice to 5
+    if(food1.checked==true)
+    {
+        foodd=5;
+    }
+    //finally we return the candlePrice
+    return foodd;
+}
+//first Food
+ function fod5()
+{
+    var foodd=0;
+    //Get a reference to the form id="cakeform"
+    var theForm = document.forms["form"];
+    //Get a reference to the checkbox id="includecandles"
+    var food1 = theForm.elements["foodd5"];
+
+    //If they checked the box set candlePrice to 5
+    if(food1.checked==true)
+    {
+        foodd=5;
+    }
+    //finally we return the candlePrice
+    return foodd;
+}
+//first Food
+ function fod6()
+{
+    var foodd=0;
+    //Get a reference to the form id="cakeform"
+    var theForm = document.forms["form"];
+    //Get a reference to the checkbox id="includecandles"
+    var food1 = theForm.elements["foodd6"];
+
+    //If they checked the box set candlePrice to 5
+    if(food1.checked==true)
+    {
+        foodd=5;
+    }
+    //finally we return the candlePrice
+    return foodd;
+}
+
+ function chairs1()
+{
+    var ch=0;
+    //Get a reference to the form id="cakeform"
+    var theForm = document.forms["form"];
+    //Get a reference to the checkbox id="includecandles"
+    var ch1 = theForm.elements["chairr1"];
+
+    //If they checked the box set candlePrice to 5
+    if(ch1.checked==true)
+    {
+        ch=5;
+    }
+    //finally we return the candlePrice
+    return ch;
+}
+function chairs2()
+{
+    var ch=0;
+    //Get a reference to the form id="cakeform"
+    var theForm = document.forms["form"];
+    //Get a reference to the checkbox id="includecandles"
+    var ch1 = theForm.elements["chairr2"];
+
+    //If they checked the box set candlePrice to 5
+    if(ch1.checked==true)
+    {
+        ch=5;
+    }
+    //finally we return the candlePrice
+    return ch;
+}
+
+
+function getTotal()
+{
+    
+    //Here we get the total price by calling our function
+    //Each function returns a number so by calling them we add the values they return together
+    var cakePrice = etype() + eplc() +
+                           lght() +flws()+Equi1()+Equi2()+Equi3()+fod1()+fod2()+fod3()+fod4()+fod5()+fod6()+chairs1()+chairs2();
+ 
+    //display the result
+    document.getElementById('totalPrice').innerHTML =
+                                      "<b>Total Price  RS.</b>"+cakePrice;
+    
+    function sendAJAX(cakePrice)
+{
+var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+         alert('posted value' + xmlhttp.responseText);
+    }
+  }
+xmlhttp.open("GET","https://event8s.000webhostapp.com/sessiondemo/eventbooking.php/?q=" + cakePrice ,true);
+xmlhttp.send();
+}
+}
+        
+    </script>
+    
+</body>
+
+        
+</html>
